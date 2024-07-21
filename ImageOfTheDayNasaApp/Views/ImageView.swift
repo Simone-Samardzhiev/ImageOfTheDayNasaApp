@@ -11,14 +11,6 @@ import SwiftUI
 struct ImageView: View {
     /// The manager of the data downloaded from NASA.
     @EnvironmentObject var dataManager: DataManager
-    /// The width of the view.
-    let width: CGFloat
-    
-    /// Initializer of the ImageView.
-    /// - Parameter width: The width of the view.
-    init(width: CGFloat) {
-        self.width = width
-    }
     
     var body: some View {
         if let response = dataManager.response {
@@ -30,7 +22,7 @@ struct ImageView: View {
                 AsyncImage(url: URL(string: response.imageURL)) { image in
                     image
                         .resizable()
-                        .frame(width: width)
+                        .scaledToFit()
                 } placeholder: {
                     ProgressView()
                 }

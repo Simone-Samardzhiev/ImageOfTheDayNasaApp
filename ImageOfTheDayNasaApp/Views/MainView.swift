@@ -15,9 +15,7 @@ struct MainView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                ImageView(
-                    width: geo.size.width
-                )
+                ImageView()
                 
                 Spacer()
                 
