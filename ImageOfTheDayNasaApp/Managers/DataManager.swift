@@ -62,4 +62,43 @@ class DataManager: ObservableObject {
         ]
     }
     
+    /// Method that will get the response.
+    private func getResponse() {
+        guard let url = urlComponents?.url else {
+            return
+        }
+        
+        setQueryItems()
+        
+        URLSession.shared.dataTaskPublisher(for: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .tryMap(handleData)
+            .decode(type: ResponseData.self, decoder: JSONDecoder())
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            } receiveValue: { [weak self] responseData in
+                self?.response = responseData
+            }
+            .store(in: &cancellable)
+
+    }
+    
+    /// Method that will handle the data form the subscriber.
+    /// - Parameter output: The output of the subscriber.
+    /// - Returns: The data.
+    private func handleData(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+        guard
+            let httpResponse = output.response as? HTTPURLResponse,
+            httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 else {
+            throw URLError(.badServerResponse)
+        }
+        
+        return output.data
+    }
 }
