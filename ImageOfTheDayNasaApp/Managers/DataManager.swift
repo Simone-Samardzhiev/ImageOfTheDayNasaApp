@@ -78,34 +78,39 @@ class DataManager: ObservableObject {
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .tryMap(handleData)
+            .tryMap(handleTryMap)
             .decode(type: ResponseData.self, decoder: JSONDecoder())
             .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    if let error = error as? URLError {
-                        switch error.code {
-                        case URLError.badServerResponse :
-                            self?.alertMessage = "We are sorry, but the picture of today in not posted"
-                        default:
-                            self?.alertMessage = "We are sorry, there was an unknown error: \(error.localizedDescription)"
-                        }
-                        
-                        self?.alertIsShown = true
-                    }
-                }
+                self?.handleCompletion(completion: completion)
             } receiveValue: { [weak self] responseData in
                 self?.response = responseData
             }
             .store(in: &cancellables)
     }
     
+    private func handleCompletion(completion: Subscribers.Completion<any Error>) {
+        switch completion {
+        case .finished:
+            break
+        case .failure(let error):
+            if let error = error as? URLError {
+                switch error.code {
+                case URLError.badServerResponse :
+                    alertMessage = "We are sorry, but the picture of today in not posted"
+                default:
+                    alertMessage = "We are sorry, there was an unknown error: \(error.localizedDescription)"
+                }
+                
+                alertIsShown = true
+            }
+        }
+    }
+    
+    
     /// Method that will handle the data form the subscriber.
     /// - Parameter output: The output of the subscriber.
     /// - Returns: The data.
-    private func handleData(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+    private func handleTryMap(output: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let httpResponse = output.response as? HTTPURLResponse else {
             throw URLError(.unknown)
         }
