@@ -34,9 +34,12 @@ struct ResponseData: Decodable {
 class DataManager: ObservableObject {
     /// Variable keeping the response.
     var response: ResponseData?
+    /// Variable keeping the date.
+    @Published var date: Date
     
     /// Default initialiser.
     init() {
         self.response = nil
+        self.date = Date()
     }
 }
