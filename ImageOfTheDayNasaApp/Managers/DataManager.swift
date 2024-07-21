@@ -38,7 +38,7 @@ class DataManager: ObservableObject {
     /// Variable keeping the date.
     @Published var date: Date
     /// Variable holding the url.
-    var urlComponents: URLComponents?
+    private var urlComponents: URLComponents?
     /// Variable keeping the cancellable.
     private var cancellables: Set<AnyCancellable>
     
