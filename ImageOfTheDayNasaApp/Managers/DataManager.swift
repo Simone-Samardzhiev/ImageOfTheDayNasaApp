@@ -52,9 +52,9 @@ class DataManager: ObservableObject {
     
     /// Method that will format and set the query items.
     private func setQueryItems() {
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormater.string(from: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
         
         urlComponents?.queryItems = [
             URLQueryItem(name: "date", value: dateString),
