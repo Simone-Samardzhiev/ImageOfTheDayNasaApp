@@ -28,7 +28,7 @@ struct GetImageButton: View {
     
     var body: some View {
         Button {
-            
+            dataManager.getResponse()
         } label: {
             RoundedRectangle(cornerRadius: 25.0)
                 .fill(Color.blue)
