@@ -88,6 +88,8 @@ class DataManager: ObservableObject {
             .store(in: &cancellables)
     }
     
+    /// Method that will handle completion from the subscriber.
+    /// - Parameter completion: The completion of the subscriber.
     private func handleCompletion(completion: Subscribers.Completion<any Error>) {
         switch completion {
         case .finished:
