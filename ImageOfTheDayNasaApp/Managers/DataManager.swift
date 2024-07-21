@@ -61,6 +61,7 @@ class DataManager: ObservableObject {
     
     /// Method that will get the response.
     func getResponse() {
+        response = nil
         setQueryItems()
         cancellables.removeAll()
         
@@ -84,7 +85,6 @@ class DataManager: ObservableObject {
                 self?.response = responseData
             }
             .store(in: &cancellables)
-
     }
     
     /// Method that will handle the data form the subscriber.
