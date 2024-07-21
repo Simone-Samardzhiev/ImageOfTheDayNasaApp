@@ -63,12 +63,13 @@ class DataManager: ObservableObject {
     }
     
     /// Method that will get the response.
-    private func getResponse() {
+    func getResponse() {
+        setQueryItems()
+        cancellables.removeAll()
+        
         guard let url = urlComponents?.url else {
             return
         }
-        
-        setQueryItems()
         
         URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .background))
