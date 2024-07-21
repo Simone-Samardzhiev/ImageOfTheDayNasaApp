@@ -11,6 +11,7 @@ import SwiftUI
 struct ImageOfTheDayNasaAppApp: App {
     var body: some Scene {
         WindowGroup {
+            MainView()
         }
     }
 }
