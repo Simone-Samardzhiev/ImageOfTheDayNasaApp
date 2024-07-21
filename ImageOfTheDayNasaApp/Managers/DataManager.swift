@@ -12,8 +12,6 @@ import Combine
 struct ResponseData: Decodable {
     /// The title of the image.
     let title: String
-    /// The explanation of the image.
-    let explanation: String
     /// The URL of the image that is send.
     let imageURL: String
     
@@ -26,7 +24,6 @@ struct ResponseData: Decodable {
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(String.self, forKey: .title)
-        self.explanation = try container.decode(String.self, forKey: .explanation)
         self.imageURL = try container.decode(String.self, forKey: .imageURL)
     }
 }
