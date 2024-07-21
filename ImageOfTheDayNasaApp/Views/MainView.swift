@@ -9,6 +9,9 @@ import SwiftUI
 
 /// The main view of the app.
 struct MainView: View {
+    /// The manager of the data downloaded from NASA.
+    @StateObject var dataManager = DataManager()
+    
     var body: some View {
         GeometryReader { geo in
             VStack {
