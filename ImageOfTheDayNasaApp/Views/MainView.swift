@@ -15,8 +15,14 @@ struct MainView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
+                ImageView(
+                    width: geo.size.width
+                )
+                
                 Spacer()
+                
                 ImageDatePicker(width: geo.size.width / 1.2)
+                
                 GetImageButton(
                     width: geo.size.width / 1.5,
                     height: geo.size.height / 15
