@@ -10,6 +10,7 @@
 		198444402C4D57AA00A58F45 /* ImageDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1984443F2C4D57AA00A58F45 /* ImageDatePicker.swift */; };
 		198444442C4D61DB00A58F45 /* GetImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198444432C4D61DB00A58F45 /* GetImageButton.swift */; };
 		198444462C4D64AD00A58F45 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198444452C4D64AD00A58F45 /* ImageView.swift */; };
+		198444482C4D7D3E00A58F45 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 198444472C4D7D3E00A58F45 /* README.md */; };
 		19EDC12B2C4D10C5005C0153 /* ImageOfTheDayNasaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EDC12A2C4D10C5005C0153 /* ImageOfTheDayNasaAppApp.swift */; };
 		19EDC12F2C4D10C7005C0153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19EDC12E2C4D10C7005C0153 /* Assets.xcassets */; };
 		19EDC1322C4D10C7005C0153 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19EDC1312C4D10C7005C0153 /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		1984443F2C4D57AA00A58F45 /* ImageDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDatePicker.swift; sourceTree = "<group>"; };
 		198444432C4D61DB00A58F45 /* GetImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageButton.swift; sourceTree = "<group>"; };
 		198444452C4D64AD00A58F45 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		198444472C4D7D3E00A58F45 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		19EDC1272C4D10C5005C0153 /* ImageOfTheDayNasaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOfTheDayNasaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19EDC12A2C4D10C5005C0153 /* ImageOfTheDayNasaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOfTheDayNasaAppApp.swift; sourceTree = "<group>"; };
 		19EDC12E2C4D10C7005C0153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 		19EDC11E2C4D10C5005C0153 = {
 			isa = PBXGroup;
 			children = (
+				198444472C4D7D3E00A58F45 /* README.md */,
 				19EDC1292C4D10C5005C0153 /* ImageOfTheDayNasaApp */,
 				19EDC1282C4D10C5005C0153 /* Products */,
 			);
@@ -153,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198444482C4D7D3E00A58F45 /* README.md in Resources */,
 				19EDC1322C4D10C7005C0153 /* Preview Assets.xcassets in Resources */,
 				19EDC12F2C4D10C7005C0153 /* Assets.xcassets in Resources */,
 			);
