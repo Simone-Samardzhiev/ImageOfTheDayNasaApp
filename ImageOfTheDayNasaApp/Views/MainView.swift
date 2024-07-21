@@ -17,6 +17,7 @@ struct MainView: View {
             VStack {
                 ImageDatePicker(width: geo.size.width / 1.2)
             }
+            .environmentObject(dataManager)
             .frame(width: geo.size.width, height: geo.size.height)
         }
     }
