@@ -53,7 +53,7 @@ class DataManager: ObservableObject {
         let dateString = dateFormater.string(from: date)
         
         urlComponents?.queryItems = [
-            URLQueryItem(name: "data", value: dateString),
+            URLQueryItem(name: "date", value: dateString),
             URLQueryItem(name: "api_key", value: "Rc8mcmK1Xov6YPxnRIbxnFVeey3TeCTaBAMQSFdv")
         ]
     }
