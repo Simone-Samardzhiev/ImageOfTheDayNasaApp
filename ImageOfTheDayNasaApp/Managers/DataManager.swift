@@ -80,12 +80,21 @@ class DataManager: ObservableObject {
             .receive(on: DispatchQueue.main)
             .tryMap(handleData)
             .decode(type: ResponseData.self, decoder: JSONDecoder())
-            .sink { completion in
+            .sink { [weak self] completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
+                    if let error = error as? URLError {
+                        switch error.code {
+                        case URLError.badServerResponse :
+                            self?.alertMessage = "We are sorry, but the picture of today in not posted"
+                        default:
+                            self?.alertMessage = "We are sorry, there was an unknown error: \(error.localizedDescription)"
+                        }
+                        
+                        self?.alertIsShown = true
+                    }
                 }
             } receiveValue: { [weak self] responseData in
                 self?.response = responseData
