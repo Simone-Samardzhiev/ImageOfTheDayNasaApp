@@ -36,10 +36,12 @@ class DataManager: ObservableObject {
     var response: ResponseData?
     /// Variable keeping the date.
     @Published var date: Date
+    var url: URLComponents?
     
     /// Default initialiser.
     init() {
         self.response = nil
         self.date = Date()
+        self.url = URLComponents(string: "https://api.nasa.gov/planetary/apod")
     }
 }
