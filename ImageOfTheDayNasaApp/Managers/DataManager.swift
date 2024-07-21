@@ -97,12 +97,17 @@ class DataManager: ObservableObject {
     /// - Parameter output: The output of the subscriber.
     /// - Returns: The data.
     private func handleData(output: URLSession.DataTaskPublisher.Output) throws -> Data {
-        guard
-            let httpResponse = output.response as? HTTPURLResponse,
-            httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 else {
-            throw URLError(.badServerResponse)
+        guard let httpResponse = output.response as? HTTPURLResponse else {
+            throw URLError(.unknown)
         }
         
-        return output.data
+        switch httpResponse.statusCode {
+        case 200..<300:
+            return output.data
+        case 400:
+            throw URLError(.badServerResponse)
+        default:
+            throw URLError(.unknown)
+        }
     }
 }
