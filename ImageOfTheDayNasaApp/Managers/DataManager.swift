@@ -32,5 +32,7 @@ struct ResponseData: Decodable {
 
 /// Manager that will manage the data of the app.
 class DataManager: ObservableObject {
+    /// Variable keeping the response.
+    var response: ResponseData?
     
 }
