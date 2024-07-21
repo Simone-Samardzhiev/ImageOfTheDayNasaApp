@@ -16,6 +16,10 @@ struct MainView: View {
         GeometryReader { geo in
             VStack {
                 ImageDatePicker(width: geo.size.width / 1.2)
+                GetImageButton(
+                    width: geo.size.width / 1.5,
+                    height: geo.size.height / 15
+                )
             }
             .environmentObject(dataManager)
             .frame(width: geo.size.width, height: geo.size.height)
