@@ -31,7 +31,7 @@ struct ResponseData: Decodable {
     }
 }
 
-/// Manager that will manage the data of the app.
+/// Manager that will manage the data of the app that is download from NASA.
 class DataManager: ObservableObject {
     /// Variable keeping the response.
     @Published var response: ResponseData?
