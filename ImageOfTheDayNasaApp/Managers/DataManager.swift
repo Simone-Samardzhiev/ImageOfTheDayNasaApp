@@ -34,6 +34,10 @@ class DataManager: ObservableObject {
     @Published var response: ResponseData?
     /// Variable keeping the date.
     @Published var date: Date
+    /// Variable used to show an alert.
+    @Published var alertIsShown: Bool
+    /// Variable keeping the alert message.
+    var alertMessage: String
     /// Variable holding the url.
     private var urlComponents: URLComponents?
     /// Variable keeping the cancellable.
@@ -43,6 +47,8 @@ class DataManager: ObservableObject {
     init() {
         self.response = nil
         self.date = Date()
+        self.alertIsShown = false
+        self.alertMessage = ""
         self.urlComponents = URLComponents(string: "https://api.nasa.gov/planetary/apod")
         self.cancellables = Set<AnyCancellable>()
     }
