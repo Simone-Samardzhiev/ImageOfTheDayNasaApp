@@ -35,4 +35,8 @@ class DataManager: ObservableObject {
     /// Variable keeping the response.
     var response: ResponseData?
     
+    /// Default initialiser.
+    init() {
+        self.response = nil
+    }
 }
