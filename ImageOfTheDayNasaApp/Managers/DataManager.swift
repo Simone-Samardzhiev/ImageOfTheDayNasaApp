@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 /// Struct that will hold the data form the response.
 struct ResponseData: Decodable {
@@ -38,12 +39,15 @@ class DataManager: ObservableObject {
     @Published var date: Date
     /// Variable holding the url.
     var urlComponents: URLComponents?
+    /// Variable keeping the cancellable.
+    private var cancellable: Set<AnyCancellable>
     
     /// Default initialiser.
     init() {
         self.response = nil
         self.date = Date()
         self.urlComponents = URLComponents(string: "https://api.nasa.gov/planetary/apod")
+        self.cancellable = Set<AnyCancellable>()
     }
     
     /// Method that will format and set the query items.
