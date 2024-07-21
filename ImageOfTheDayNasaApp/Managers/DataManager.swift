@@ -42,7 +42,7 @@ class DataManager: ObservableObject {
     /// Variable keeping the cancellable.
     private var cancellables: Set<AnyCancellable>
     
-    /// Default initialiser.
+    /// Default initializer.
     init() {
         self.response = nil
         self.date = Date()
