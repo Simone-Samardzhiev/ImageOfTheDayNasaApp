@@ -40,14 +40,14 @@ class DataManager: ObservableObject {
     /// Variable holding the url.
     var urlComponents: URLComponents?
     /// Variable keeping the cancellable.
-    private var cancellable: Set<AnyCancellable>
+    private var cancellables: Set<AnyCancellable>
     
     /// Default initialiser.
     init() {
         self.response = nil
         self.date = Date()
         self.urlComponents = URLComponents(string: "https://api.nasa.gov/planetary/apod")
-        self.cancellable = Set<AnyCancellable>()
+        self.cancellables = Set<AnyCancellable>()
     }
     
     /// Method that will format and set the query items.
@@ -85,7 +85,7 @@ class DataManager: ObservableObject {
             } receiveValue: { [weak self] responseData in
                 self?.response = responseData
             }
-            .store(in: &cancellable)
+            .store(in: &cancellables)
 
     }
     
