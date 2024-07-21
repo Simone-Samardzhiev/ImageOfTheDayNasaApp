@@ -33,7 +33,7 @@ struct ResponseData: Decodable {
 /// Manager that will manage the data of the app.
 class DataManager: ObservableObject {
     /// Variable keeping the response.
-    var response: ResponseData?
+    @Published var response: ResponseData?
     /// Variable keeping the date.
     @Published var date: Date
     /// Variable holding the url.
