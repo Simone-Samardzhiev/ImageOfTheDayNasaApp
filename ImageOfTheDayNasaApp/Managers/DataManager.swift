@@ -37,13 +37,13 @@ class DataManager: ObservableObject {
     /// Variable keeping the date.
     @Published var date: Date
     /// Variable holding the url.
-    var url: URLComponents?
+    var urlComponents: URLComponents?
     
     /// Default initialiser.
     init() {
         self.response = nil
         self.date = Date()
-        self.url = URLComponents(string: "https://api.nasa.gov/planetary/apod")
+        self.urlComponents = URLComponents(string: "https://api.nasa.gov/planetary/apod")
     }
     
     /// Method that will format and set the query items.
@@ -52,9 +52,10 @@ class DataManager: ObservableObject {
         dateFormater.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormater.string(from: date)
         
-        url?.queryItems = [
+        urlComponents?.queryItems = [
             URLQueryItem(name: "data", value: dateString),
             URLQueryItem(name: "api_key", value: "Rc8mcmK1Xov6YPxnRIbxnFVeey3TeCTaBAMQSFdv")
         ]
     }
+    
 }
